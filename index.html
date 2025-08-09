@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ter Costruzioni S.r.l. | Costruiamo Valore, Edifichiamo il Futuro</title>
+    <meta name="description" content="Ter Costruzioni è un'impresa leader nel settore delle costruzioni civili, industriali e delle ristrutturazioni. Scopri i nostri progetti e la nostra filosofia basata su qualità, sicurezza e innovazione.">
+    <meta name="keywords" content="costruzioni, edilizia, ristrutturazioni, costruzioni civili, costruzioni industriali, impresa edile, Italia, Ter Costruzioni">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- A fallback, will use inline SVG for performance and control -->
+
+    <style>
+        :root {
+            --navy-blue: #1B2A41;
+            --charcoal-grey: #3A3A3A;
+            --terracotta: #C46D43;
+            --off-white: #F8F7F4;
+            --light-stone: #EAE8E1;
+            --white: #FFFFFF;
+
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Lora', serif;
+
+            --header-height: 80px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--off-white);
+            color: var(--charcoal-grey);
+            line-height: 1.7;
+            overflow-x: hidden;
+            cursor: none; /* Hide default cursor */
+        }
+
+        .cursor-dot, .cursor-outline {
+            pointer-events: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--terracotta);
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(196, 109, 67, 0.2);
+            transition: all 0.1s ease-out;
+        }
+        
+        .cursor-outline.hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: rgba(196, 109, 67, 0.3);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--navy-blue);
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+        h3 { font-size: 1.75rem; }
+        p { margin-bottom: 1rem; }
+
+        a {
+            color: var(--terracotta);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 6rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .section-bg-grid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(234, 232, 225, 0.8) 1px, transparent 1px), 
+                linear-gradient(90deg, rgba(234, 232, 225, 0.8) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background-color: var(--terracotta);
+            color: var(--white);
+            border: 2px solid var(--terracotta);
+        }
+
+        .btn-primary:hover {
+            color: var(--terracotta);
+            background-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--navy-blue);
+            border: 2px solid var(--navy-blue);
+        }
+        .btn-secondary:hover {
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--terracotta);
+        }
+        .section-title p {
+            max-width: 600px;
+            margin: 1rem auto 0;
+            color: #555;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 1000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
+        }
+        .header.scrolled {
+            height: 70px;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        .logo {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--navy-blue);
+            text-transform: uppercase;
+        }
+        .logo span { color: var(--terracotta); }
+
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-menu a {
+            font-family: var(--font-heading);
+            color: var(--navy-blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            position: relative;
+            padding: 5px 0;
+        }
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--terracotta);
+            transition: width 0.3s ease;
+        }
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .lang-switcher {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .lang-switcher a {
+            color: var(--charcoal-grey);
+            padding: 0 5px;
+            opacity: 0.6;
+        }
+        .lang-switcher a.active {
+            opacity: 1;
+            color: var(--terracotta);
+        }
+        
+        .mobile-nav-toggle { display: none; }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0;
+            position: relative;
+        }
+        #hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(27, 42, 65, 0.7);
+            z-index: -1;
+        }
+        .hero-content h1 {
+            color: var(--white);
+            font-weight: 800;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .hero-content p {
+            font-size: 1.5rem;
+            font-family: var(--font-heading);
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* Services Section */
+        #servizi { background-color: var(--white); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: var(--off-white);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border: 1px solid var(--light-stone);
+            border-bottom: 4px solid var(--light-stone);
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-bottom-color: var(--terracotta);
+        }
+        .service-icon {
+            font-size: 3rem;
+            color: var(--terracotta);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        .service-card h3 { margin-bottom: 1rem; }
+
+        /* About Us / Chi Siamo */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .about-image {
+            position: relative;
+        }
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 10px solid var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .about-image::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 80%;
+            height: 80%;
+            border: 4px solid var(--terracotta);
+            z-index: -1;
+            transition: all 0.4s ease;
+        }
+        .about-content:hover .about-image::before {
+            bottom: -30px;
+            right: -30px;
+        }
+        .about-text h3 {
+            font-weight: 700;
+            color: var(--terracotta);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 4rem auto 0;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--light-stone);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-container.left { left: 0; }
+        .timeline-container.right { left: 50%; }
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: var(--white);
+            border: 4px solid var(--terracotta);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-container.right::after { left: -13px; }
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            border: 1px solid var(--light-stone);
+        }
+        .timeline-content h4 {
+            color: var(--terracotta);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .project-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .project-item:hover img {
+            transform: scale(1.1);
+        }
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(27, 42, 65, 0.9) 0%, rgba(27, 42, 65, 0) 100%);
+            color: white;
+            padding: 3rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+        .project-item:hover .project-overlay {
+            transform: translateY(0);
+        }
+        .project-overlay h4 {
+            color: white;
+            font-size: 1.2rem;
+        }
+        .project-overlay span {
+            font-family: var(--font-body);
+            font-style: italic;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Stats / Trust Section */
+        #trust {
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+        #trust .section-title h2, #trust .section-title p { color: var(--white); }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .stat-item .stat-number {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--terracotta);
+        }
+        .stat-item .stat-label {
+            font-size: 1.1rem;
+            font-family: var(--font-heading);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        
+        /* Sustainability Section */
+        #sostenibilita .container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        .sostenibilita-img {
+            flex: 0 0 45%;
+        }
+        .sostenibilita-img img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: -20px 20px 0 var(--light-stone);
+        }
+        .sostenibilita-text { flex: 1; }
+
+        /* Testimonials */
+        #testimonials { background-color: var(--white); }
+        .swiper-slide {
+            padding: 2rem;
+            text-align: center;
+        }
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+            padding: 0 2rem;
+        }
+        .testimonial-text::before, .testimonial-text::after {
+            content: '"';
+            font-family: serif;
+            font-size: 5rem;
+            color: var(--terracotta);
+            opacity: 0.2;
+            position: absolute;
+        }
+        .testimonial-text::before { top: -1rem; left: 0; }
+        .testimonial-text::after { bottom: -3rem; right: 0; }
+
+        .testimonial-author {
+            font-family: var(--font-heading);
+            font-weight: 600;
+        }
+        .testimonial-author span {
+            display: block;
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        .swiper-pagination-bullet-active {
+            background: var(--terracotta) !important;
+        }
+
+        /* CTA Section */
+        #cta {
+            background: linear-gradient(rgba(27, 42, 65, 0.85), rgba(27, 42, 65, 0.85)), url(https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop) center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--white);
+            text-align: center;
+        }
+        #cta h2 { color: var(--white); font-size: 2.8rem; }
+        #cta p {
+            max-width: 600px;
+            margin: 1rem auto 2.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Contact */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            background: white;
+            padding: 3rem;
+            border: 1px solid var(--light-stone);
+        }
+        .contact-info h3 { margin-bottom: 1.5rem; }
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .contact-info i {
+            font-size: 1.5rem;
+            color: var(--terracotta);
+            width: 30px;
+            text-align: center;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            border: 1px solid var(--light-stone);
+            background: var(--off-white);
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--terracotta);
+        }
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--navy-blue);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 4rem 0 2rem;
+            font-size: 0.9rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .footer h4 {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .footer-about .logo { font-size: 2rem; color: var(--white); margin-bottom: 1rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.5rem; }
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s, padding-left 0.3s;
+        }
+        .footer-links a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+        .social-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            transition: background-color 0.3s;
+        }
+        .social-links a:hover {
+            background-color: var(--terracotta);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+        }
+        
+        /* SVG Icons */
+        .icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            stroke-width: 0;
+            stroke: currentColor;
+            fill: currentColor;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            .hero-content h1 { font-size: 3rem; }
+            
+            .about-content { grid-template-columns: 1fr; }
+            .about-image { max-width: 500px; margin: 0 auto 3rem; }
+            
+            #sostenibilita .container { flex-direction: column; }
+            .sostenibilita-img { margin-bottom: 3rem; }
+            
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            :root { --header-height: 70px; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            section { padding: 4rem 0; }
+            .container { padding: 0 1rem; }
+            .header { padding: 0 1rem; }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--white);
+                transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            }
+            .nav-menu.active { right: 0; }
+            .nav-menu ul {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                gap: 2.5rem;
+            }
+            .nav-menu a { font-size: 1.2rem; }
+            
+            .mobile-nav-toggle {
+                display: block;
+                z-index: 1001;
+                background: none;
+                border: none;
+                width: 30px;
+                height: 30px;
+                position: relative;
+            }
+            .hamburger-line {
+                display: block;
+                width: 100%;
+                height: 3px;
+                background-color: var(--navy-blue);
+                position: absolute;
+                left: 0;
+                transition: all 0.3s ease;
+            }
+            .line-1 { top: 5px; }
+            .line-2 { top: 14px; }
+            .line-3 { top: 23px; }
+            
+            .mobile-nav-toggle.active .line-1 { transform: rotate(45deg); top: 14px; }
+            .mobile-nav-toggle.active .line-2 { opacity: 0; }
+            .mobile-nav-toggle.active .line-3 { transform: rotate(-45deg); top: 14px; }
+
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1.2rem; }
+
+            .timeline::after { left: 31px; }
+            .timeline-container { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-container.right { left: 0%; }
+            .timeline-container::after { left: 18px; }
+
+            .projects-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .social-links { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <symbol id="icon-building" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></symbol>
+            <symbol id="icon-factory" viewBox="0 0 24 24"><path d="M22 22H2v-8l3-3 3 3-2 2v4h4v-5l-2-2 3-3 3 3-2 2v5h4v-3l-2-2 3-3 3 3v8zM10 9V7l-2-2h4l-2 2v2h4V5l-2-2h4l-2 2v4h2V3h-6L8 1 6 3v6h4z"/></symbol>
+            <symbol id="icon-home-repair" viewBox="0 0 24 24"><path d="M17.5 12a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-1.5 1.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5zM22 8.7V22H2V8.7l5-4.2V2.8L12 1l5 1.8v1.7l5 4.2zM12 3.5 4 9v11h16V9l-8-5.5zM7 16h2v-2H7v2zm4 0h2v-2h-2v2zm4 0h2v-2h-2v2z"/></symbol>
+            <symbol id="icon-map-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></symbol>
+            <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></symbol>
+            <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></symbol>
+            <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-12 5v10h4V12h-4zM8 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm8 12h4V12c0-2.2-1.8-4-4-4s-4 1.8-4 4v6h4z"/></symbol>
+            <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M12 2.04c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10S17.52 2.04 12 2.04zM16 11h-2.5v7h-3v-7H9v-2.5h1.5V6.5c0-1.5 1-2.5 2.5-2.5H15V6h-1.5c-.5 0-.5.5-.5 1v1.5H16v2.5z"/></symbol>
+        </defs>
+    </svg>
+
+    <header class="header" id="header">
+        <a href="#hero" class="logo">Ter<span>.</span></a>
+        
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="#hero" class="nav-link active" data-lang-en="Home" data-lang-it="Home">Home</a></li>
+                <li><a href="#chi-siamo" class="nav-link" data-lang-en="About Us" data-lang-it="Chi Siamo">Chi Siamo</a></li>
+                <li><a href="#servizi" class="nav-link" data-lang-en="Services" data-lang-it="Servizi">Servizi</a></li>
+                <li><a href="#progetti" class="nav-link" data-lang-en="Projects" data-lang-it="Progetti">Progetti</a></li>
+                <li><a href="#sostenibilita" class="nav-link" data-lang-en="Sustainability" data-lang-it="Sostenibilità">Sostenibilità</a></li>
+                <li><a href="#contatti" class="nav-link" data-lang-en="Contact" data-lang-it="Contatti">Contatti</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-right">
+            <div class="lang-switcher">
+                <a href="#" class="lang-btn active" data-lang="it">IT</a>
+                <span>/</span>
+                <a href="#" class="lang-btn" data-lang="en">EN</a>
+            </div>
+            <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Menu">
+                <span class="hamburger-line line-1"></span>
+                <span class="hamburger-line line-2"></span>
+                <span class="hamburger-line line-3"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="hero">
+            <video autoplay muted loop playsinline id="hero-video" poster="https://images.unsplash.com/photo-1581092448348-9c17e346f0b5?q=80&w=2070&auto=format&fit=crop">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-crane-working-at-a-construction-site-4123-large.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-content" data-aos="fade-up">
+                <h1 data-lang-en="Building Value,<br>Engineering the Future." data-lang-it="Costruiamo Valore,<br>Edifichiamo il Futuro.">Costruiamo Valore,<br>Edifichiamo il Futuro.</h1>
+                <p data-lang-en="Italian excellence in civil, industrial, and restoration construction since 1973." data-lang-it="Eccellenza italiana nelle costruzioni civili, industriali e di restauro dal 1973.">Eccellenza italiana nelle costruzioni civili, industriali e di restauro dal 1973.</p>
+                <a href="#progetti" class="btn btn-primary" data-lang-en="Discover our Projects" data-lang-it="Scopri i Nostri Progetti">Scopri i Nostri Progetti</a>
+            </div>
+        </section>
+
+        <section id="servizi" class="section-bg-grid">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2 data-lang-en="Our Services" data-lang-it="I Nostri Servizi">I Nostri Servizi</h2>
+                    <p data-lang-en="From vision to reality. Complete expertise for every sector." data-lang-it="Dalla visione alla realtà. Competenza completa per ogni settore.">Dalla visione alla realtà. Competenza completa per ogni settore.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-icon"><svg class="icon icon-building" width="48" height="48"><use xlink:href="#icon-building"></use></svg></div>
+                        <h3 data-lang-en="Civil Construction" data-lang-it="Costruzioni Civili">Costruzioni Civili</h3>
+                        <p data-lang-en="High-end residential buildings, public structures, and urban development projects." data-lang-it="Edifici residenziali di pregio, strutture pubbliche e progetti di sviluppo urbano.">Edifici residenziali di pregio, strutture pubbliche e progetti di sviluppo urbano.</p>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-icon"><svg class="icon icon-factory" width="48" height="48"><use xlink:href="#icon-factory"></use></svg></div>
+                        <h3 data-lang-en="Industrial Construction" data-lang-it="Costruzioni Industriali">Costruzioni Industriali</h3>
+                        <p data-lang-en="State-of-the-art production facilities, warehouses, and commercial headquarters." data-lang-it="Impianti produttivi all'avanguardia, magazzini e sedi commerciali e direzionali.">Impianti produttivi all'avanguardia, magazzini e sedi commerciali e direzionali.</p>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-icon"><svg class="icon icon-home-repair" width="48" height="48"><use xlink:href="#icon-home-repair"></use></svg></div>
+                        <h3 data-lang-en="Renovations & Restoration" data-lang-it="Ristrutturazioni e Restauro">Ristrutturazioni e Restauro</h3>
+                        <p data-lang-en="Preserving heritage while integrating modern functionality and structural integrity." data-lang-it="Conservazione del patrimonio storico integrando funzionalità moderne e integrità strutturale.">Conservazione del patrimonio storico integrando funzionalità moderne e integrità strutturale.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="chi-siamo">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1554446422-d05db23719c2?q=80&w=1935&auto=format&fit=crop" alt="Team di ingegneri e architetti al lavoro">
+                    </div>
+                    <div class="about-text" data-aos="fade-left">
+                        <h3 data-lang-en="Our Foundations" data-lang-it="Le Nostre Fondamenta">Le Nostre Fondamenta</h3>
+                        <h2 data-lang-en="Experience, Integrity, Passion." data-lang-it="Esperienza, Integrità e Passione.">Esperienza, Integrità e Passione.</h2>
+                        <p data-lang-en="For over 50 years, Ter Costruzioni has been a benchmark in the Italian construction industry. Our story is built on solid foundations: a deep-rooted passion for building, unwavering integrity in every relationship, and the extensive experience of a team that turns challenges into opportunities." data-lang-it="Da oltre 50 anni, Ter Costruzioni è un punto di riferimento nell'edilizia italiana. La nostra storia si fonda su basi solide: una passione radicata per il costruire, un'integrità incrollabile in ogni rapporto e l'esperienza di un team che trasforma le sfide in opportunità.">Da oltre 50 anni, Ter Costruzioni è un punto di riferimento nell'edilizia italiana. La nostra storia si fonda su basi solide: una passione radicata per il costruire, un'integrità incrollabile in ogni rapporto e l'esperienza di un team che trasforma le sfide in opportunità.</p>
+                        <p data-lang-en="Our mission is to create structures that not only last over time but also generate value for our clients and the community." data-lang-it="La nostra missione è realizzare opere che non solo durino nel tempo, ma che generino valore per i nostri clienti e per la comunità.">La nostra missione è realizzare opere che non solo durino nel tempo, ma che generino valore per i nostri clienti e per la comunità.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline" data-aos="fade-up">
+                    <div class="timeline-container left" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <h4>1973</h4>
+                            <p data-lang-en="Ter Costruzioni is founded with a focus on local residential projects." data-lang-it="Nasce Ter Costruzioni, con focus su progetti residenziali locali.">Nasce Ter Costruzioni, con focus su progetti residenziali locali.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-container right" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <h4>1995</h4>
+                            <p data-lang-en="Expansion into the industrial sector with the first major factory build." data-lang-it="Espansione nel settore industriale con la prima grande commessa.">Espansione nel settore industriale con la prima grande commessa.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-container left" data-aos="fade-right">
+                        <div class="timeline-content">
+                            <h4>2010</h4>
+                            <p data-lang-en="Awarded first public works contract and obtain ISO 9001 certification." data-lang-it="Acquisizione del primo appalto pubblico e ottenimento certificazione ISO 9001.">Acquisizione del primo appalto pubblico e ottenimento certificazione ISO 9001.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-container right" data-aos="fade-left">
+                        <div class="timeline-content">
+                            <h4>2024</h4>
+                            <p data-lang-en="Leading innovation with sustainable building practices and digital transformation." data-lang-it="Leader nell'innovazione con pratiche di edilizia sostenibile e trasformazione digitale.">Leader nell'innovazione con pratiche di edilizia sostenibile e trasformazione digitale.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="progetti" class="section-bg-grid" style="background-color: var(--white);">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2 data-lang-en="Featured Projects" data-lang-it="I Nostri Progetti">I Nostri Progetti</h2>
+                    <p data-lang-en="A selection of works that demonstrate our commitment to quality and innovation." data-lang-it="Una selezione di lavori che dimostrano il nostro impegno per la qualità e l'innovazione.">Una selezione di lavori che dimostrano il nostro impegno per la qualità e l'innovazione.</p>
+                </div>
+                <div class="projects-grid">
+                    <a href="#" class="project-item" data-aos="zoom-in" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1511068797325-6083f0f872b1?q=80&w=2070&auto=format&fit=crop" alt="Progetto Industriale">
+                        <div class="project-overlay">
+                            <h4 data-lang-en="Logistics Hub" data-lang-it="Polo Logistico Avanzato">Polo Logistico Avanzato</h4>
+                            <span data-lang-en="Industrial Construction" data-lang-it="Costruzione Industriale">Costruzione Industriale</span>
+                        </div>
+                    </a>
+                    <a href="#" class="project-item" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=2070&auto=format&fit=crop" alt="Progetto Residenziale">
+                        <div class="project-overlay">
+                            <h4 data-lang-en="Luxury Private Villa" data-lang-it="Villa Privata di Lusso">Villa Privata di Lusso</h4>
+                            <span data-lang-en="Civil Construction" data-lang-it="Costruzione Civile">Costruzione Civile</span>
+                        </div>
+                    </a>
+                    <a href="#" class="project-item" data-aos="zoom-in" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=2070&auto=format&fit=crop" alt="Restauro Edificio Storico">
+                        <div class="project-overlay">
+                            <h4 data-lang-en="Historical Building Restoration" data-lang-it="Restauro Palazzo Storico">Restauro Palazzo Storico</h4>
+                            <span data-lang-en="Renovation & Restoration" data-lang-it="Ristrutturazione e Restauro">Ristrutturazione e Restauro</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="trust">
+            <div class="container">
+                 <div class="section-title" data-aos="fade-up">
+                    <h2 data-lang-en="Why Choose Us?" data-lang-it="Perché Sceglierci?">Perché Sceglierci?</h2>
+                    <p data-lang-en="Our numbers speak for themselves. Decades of experience transformed into tangible value." data-lang-it="I nostri numeri parlano per noi. Decenni di esperienza trasformati in valore tangibile.">I nostri numeri parlano per noi. Decenni di esperienza trasformati in valore tangibile.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                        <span class="stat-number" data-target="50">0</span>+
+                        <span class="stat-label" data-lang-en="Years of Experience" data-lang-it="Anni di Esperienza">Anni di Esperienza</span>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <span class="stat-number" data-target="250">0</span>+
+                        <span class="stat-label" data-lang-en="Projects Completed" data-lang-it="Progetti Completati">Progetti Completati</span>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                        <span class="stat-number" data-target="100">0</span>%
+                        <span class="stat-label" data-lang-en="Client Satisfaction" data-lang-it="Soddisfazione Clienti">Soddisfazione Clienti</span>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                        <span class="stat-number" data-target="12">0</span>
+                        <span class="stat-label" data-lang-en="Quality Certifications" data-lang-it="Certificazioni di Qualità">Certificazioni di Qualità</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sostenibilita">
+            <div class="container">
+                <div class="sostenibilita-img" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2070&auto=format&fit=crop" alt="Costruzione sostenibile con pannelli solari">
+                </div>
+                <div class="sostenibilita-text" data-aos="fade-left">
+                    <h2 data-lang-en="Sustainability & Safety" data-lang-it="Sostenibilità e Sicurezza">Sostenibilità e Sicurezza</h2>
+                    <p data-lang-en="We build for the future, with a deep commitment to environmental sustainability and the safety of our workers. We use innovative materials and processes to reduce environmental impact and ensure our construction sites are safe and efficient." data-lang-it="Costruiamo per il futuro, con un profondo impegno per la sostenibilità ambientale e la sicurezza dei nostri lavoratori. Utilizziamo materiali e processi innovativi per ridurre l'impatto ambientale e garantire cantieri sicuri ed efficienti.">Costruiamo per il futuro, con un profondo impegno per la sostenibilità ambientale e la sicurezza dei nostri lavoratori. Utilizziamo materiali e processi innovativi per ridurre l'impatto ambientale e garantire cantieri sicuri ed efficienti.</p>
+                    <a href="#contatti" class="btn btn-secondary" data-lang-en="Learn More" data-lang-it="Scopri di Più">Scopri di Più</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="testimonials" style="background-color: var(--white);">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2 data-lang-en="What Our Clients Say" data-lang-it="Dicono di Noi">Dicono di Noi</h2>
+                </div>
+                <div class="swiper testimonials-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text" data-lang-en="'Ter Costruzioni demonstrated unparalleled professionalism and attention to detail. They delivered our new headquarters on time and exceeded our quality expectations.'" data-lang-it="'Ter Costruzioni ha dimostrato una professionalità e un'attenzione al dettaglio senza pari. Hanno consegnato la nostra nuova sede nei tempi previsti, superando le nostre aspettative di qualità.'">'Ter Costruzioni ha dimostrato una professionalità e un'attenzione al dettaglio senza pari. Hanno consegnato la nostra nuova sede nei tempi previsti, superando le nostre aspettative di qualità.'</p>
+                                <div class="testimonial-author">
+                                    Marco Rossi
+                                    <span data-lang-en="CEO, InnovaTech S.p.A." data-lang-it="CEO, InnovaTech S.p.A.">CEO, InnovaTech S.p.A.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text" data-lang-en="'The restoration of our family home was a delicate project. The team at Ter Costruzioni handled it with expertise and respect for the building's history. The result is magnificent.'" data-lang-it="'Il restauro della nostra casa di famiglia era un progetto delicato. Il team di Ter Costruzioni lo ha gestito con competenza e rispetto per la storia dell'edificio. Il risultato è magnifico.'">'Il restauro della nostra casa di famiglia era un progetto delicato. Il team di Ter Costruzioni lo ha gestito con competenza e rispetto per la storia dell'edificio. Il risultato è magnifico.'</p>
+                                <div class="testimonial-author">
+                                    Elena Bianchi
+                                    <span data-lang-en="Private Client" data-lang-it="Cliente Privato">Cliente Privato</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta">
+            <div class="container" data-aos="zoom-in">
+                <h2 data-lang-en="Have a project in mind?" data-lang-it="Hai un progetto in mente?">Hai un progetto in mente?</h2>
+                <p data-lang-en="Let's build the future together. Contact us to discuss your ideas and discover how our expertise can bring your vision to life." data-lang-it="Costruiamo insieme il futuro. Contattaci per discutere le tue idee e scoprire come la nostra esperienza può dare vita alla tua visione.">Costruiamo insieme il futuro. Contattaci per discutere le tue idee e scoprire come la nostra esperienza può dare vita alla tua visione.</p>
+                <a href="#contatti" class="btn btn-primary" data-lang-en="Let's Talk" data-lang-it="Parliamone">Parliamone</a>
+            </div>
+        </section>
+
+        <section id="contatti">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2 data-lang-en="Contact Us" data-lang-it="Contattaci">Contattaci</h2>
+                    <p data-lang-en="We are ready to listen. Fill out the form or use our contact details to get in touch with our team." data-lang-it="Siamo pronti ad ascoltarti. Compila il modulo o utilizza i nostri recapiti per entrare in contatto con il nostro team.">Siamo pronti ad ascoltarti. Compila il modulo o utilizza i nostri recapiti per entrare in contatto con il nostro team.</p>
+                </div>
+                <div class="contact-wrapper" data-aos="fade-up">
+                    <div class="contact-info">
+                        <h3>Ter Costruzioni S.r.l.</h3>
+                        <p><svg class="icon" width="24" height="24"><use xlink:href="#icon-map-pin"></use></svg><span data-lang-en="123 Via Roma, Milan, Italy" data-lang-it="Via Roma 123, Milano, Italia">Via Roma 123, Milano, Italia</span></p>
+                        <p><svg class="icon" width="24" height="24"><use xlink:href="#icon-phone"></use></svg><span>+39 02 12345678</span></p>
+                        <p><svg class="icon" width="24" height="24"><use xlink:href="#icon-mail"></use></svg><span>info@tercostruzioni.it</span></p>
+                    </div>
+                    <form action="#" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Nome" data-lang-en-placeholder="Name" data-lang-it-placeholder="Nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Email" data-lang-en-placeholder="Email" data-lang-it-placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="subject" placeholder="Oggetto" data-lang-en-placeholder="Subject" data-lang-it-placeholder="Oggetto" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" placeholder="Messaggio" data-lang-en-placeholder="Message" data-lang-it-placeholder="Messaggio" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-lang-en="Send Message" data-lang-it="Invia Messaggio">Invia Messaggio</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#hero" class="logo">Ter<span>.</span></a>
+                    <p data-lang-en="Engineering legacies since 1973. We combine tradition and innovation to build structures that stand the test of time." data-lang-it="Ingegneria di valore dal 1973. Uniamo tradizione e innovazione per costruire opere che sfidano il tempo.">Ingegneria di valore dal 1973. Uniamo tradizione e innovazione per costruire opere che sfidano il tempo.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-lang-en="Quick Links" data-lang-it="Link Utili">Link Utili</h4>
+                    <ul>
+                        <li><a href="#chi-siamo" data-lang-en="About Us" data-lang-it="Chi Siamo">Chi Siamo</a></li>
+                        <li><a href="#servizi" data-lang-en="Services" data-lang-it="Servizi">Servizi</a></li>
+                        <li><a href="#progetti" data-lang-en="Projects" data-lang-it="Progetti">Progetti</a></li>
+                        <li><a href="#contatti" data-lang-en="Contact" data-lang-it="Contatti">Contatti</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-lang-en="Legal" data-lang-it="Legale">Legale</h4>
+                    <ul>
+                        <li><a href="#" data-lang-en="Privacy Policy" data-lang-it="Privacy Policy">Privacy Policy</a></li>
+                        <li><a href="#" data-lang-en="Cookie Policy" data-lang-it="Cookie Policy">Cookie Policy</a></li>
+                        <li><a href="#" data-lang-en="Careers" data-lang-it="Lavora con Noi">Lavora con Noi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-lang-en="Follow Us" data-lang-it="Seguici">Seguici</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><svg class="icon" width="20" height="20"><use xlink:href="#icon-linkedin"></use></svg></a>
+                        <a href="#" aria-label="Facebook"><svg class="icon" width="20" height="20"><use xlink:href="#icon-facebook"></use></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="copyright-year"></span> Ter Costruzioni S.r.l. P.IVA 12345678901. <span data-lang-en="All Rights Reserved." data-lang-it="Tutti i diritti riservati.">Tutti i diritti riservati.</span></p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // 1. AOS Initialization
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
+            });
+
+            // 2. Sticky Header
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // 3. Mobile Navigation
+            const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            const navLinks = navMenu.querySelectorAll('.nav-link');
+
+            mobileNavToggle.addEventListener('click', () => {
+                mobileNavToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        mobileNavToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                });
+            });
+
+            // 4. Active Nav Link on Scroll
+            const sections = document.querySelectorAll('section[id]');
+            window.addEventListener('scroll', navHighlighter);
+
+            function navHighlighter() {
+                let scrollY = window.pageYOffset;
+                sections.forEach(current => {
+                    const sectionHeight = current.offsetHeight;
+                    const sectionTop = current.offsetTop - 100;
+                    let sectionId = current.getAttribute('id');
+                    
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.add('active');
+                    } else {
+                        document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.remove('active');
+                    }
+                });
+            }
+            
+            // 5. Testimonials Slider (Swiper)
+            new Swiper('.testimonials-slider', {
+                loop: true,
+                speed: 600,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+            
+            // 6. Stats Counter
+            const statsCounters = document.querySelectorAll('.stat-number');
+            const statsSection = document.getElementById('trust');
+            
+            const animateCounter = (el) => {
+                const target = +el.getAttribute('data-target');
+                const duration = 2000;
+                const stepTime = Math.abs(Math.floor(duration / target));
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += 1;
+                    el.innerText = current;
+                    if (current === target) {
+                        clearInterval(timer);
+                    }
+                }, stepTime);
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        statsCounters.forEach(counter => {
+                            if (!counter.classList.contains('animated')) {
+                                animateCounter(counter);
+                                counter.classList.add('animated');
+                            }
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+
+            // 7. Copyright Year
+            document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+            // 8. Custom Cursor
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+
+            window.addEventListener('mousemove', function (e) {
+                const posX = e.clientX;
+                const posY = e.clientY;
+                
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+                
+                cursorOutline.animate({
+                    left: `${posX}px`,
+                    top: `${posY}px`
+                }, { duration: 500, fill: "forwards" });
+            });
+            
+            const interactiveElements = document.querySelectorAll('a, button, .service-card, .project-item');
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseover', () => cursorOutline.classList.add('hover'));
+                el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover'));
+            });
+
+            // 9. Language Switcher
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const translatableElements = document.querySelectorAll('[data-lang-it], [data-lang-en]');
+            const translatablePlaceholders = document.querySelectorAll('[data-lang-it-placeholder], [data-lang-en-placeholder]');
+            
+            function switchLanguage(lang) {
+                translatableElements.forEach(el => {
+                    el.textContent = el.dataset[`lang${lang}`];
+                });
+
+                translatablePlaceholders.forEach(el => {
+                    el.placeholder = el.dataset[`lang${lang}Placeholder`];
+                });
+
+                document.documentElement.lang = lang;
+                
+                langButtons.forEach(btn => {
+                    if (btn.dataset.lang === lang) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const selectedLang = e.target.dataset.lang;
+                    switchLanguage(selectedLang);
+                });
+            });
+
+            // Set initial language
+            switchLanguage('it');
+
+        });
+    </script>
+</body>
+</html>
